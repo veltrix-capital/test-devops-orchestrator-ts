@@ -4,11 +4,13 @@ REPO_URL="https://github.com/veltrix-capital/test-devops-orchestrator-ts.git"
 REPO_DIR="test-devops-orchestrator-ts"
 
 # Step 1: Clone the repository
-if [ -d "$REPO_DIR" ]; then
-  echo "Directory '$REPO_DIR' already exists. Skipping clone."
+if [ -d "$REPO_DIR/.git" ]; then
+    echo "[+] Repository exists. Pulling latest changes..."
+    cd "$REPO_DIR" && git pull
 else
-  echo "Cloning repository..."
-  git clone "$REPO_URL"
+    echo "[+] Cloning repository..."
+    git clone "$REPO_URL" "$REPO_DIR"
+    cd "$REPO_DIR"
 fi
 
 cd "$REPO_DIR" || { echo "Failed to enter directory"; exit 1; }

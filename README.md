@@ -82,18 +82,21 @@ Refactor and harden:
 - Optional: Add `docker-compose.yml` for easier orchestration
 - Ensure logs persist and `.env` can be injected cleanly
 
-### 6. Bonus (Optional)
+### 6. Create a GitHub Actions workflow that:
+
+- Triggers on push events on the main branch
+- Builds a Docker image of the project
+- Tags the image using the current Git commit SHA
+- (Optional) Pushes the image to a container registry (e.g., Docker Hub or GitHub Container Registry)
+
+### 7. Bonus (Optional)
 
 You may optionally:
 
 - Build a log monitoring watchdog (bash or node)
 - Add `logrotate` or timestamp-based log separation
 - Serve a `/status.html` page from the API with live stats
-- Create a GitHub Actions workflow that:
-    - Triggers on push events on the main branch
-    - Builds a Docker image of the project
-    - Tags the image using the current Git commit SHA
-    - (Optional) Pushes the image to a container registry (e.g., Docker Hub or GitHub Container Registry)
+    
 ---
 
 ## Functional Endpoints
@@ -113,6 +116,7 @@ You may optionally:
 eth-swap-devops-challenge/
 ├── setup.sh           # Setup script
 ├── start.sh           # Starts app.js and api.js
+├── install.sh         # Installation script to set up and run on the client node
 ├── .env_example       # Set your INFURA_URL here
 ├── package.json
 ├── logs/
