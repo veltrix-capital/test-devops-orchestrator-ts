@@ -13,8 +13,6 @@ else
     cd "$REPO_DIR"
 fi
 
-cd "$REPO_DIR" || { echo "Failed to enter directory"; exit 1; }
-
 # Step 2: Make scripts executable
 echo "Granting execution permissions..."
 chmod +x setup.sh start.sh
