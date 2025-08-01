@@ -21,6 +21,4 @@ chmod +x setup.sh start.sh
 echo "[+] Running setup.sh..."
 ./setup.sh
 
-# Step 4: Run start.sh
-echo "[+] Running start.sh..."
-./start.sh
+echo "Setup is completed"
